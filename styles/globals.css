@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark light;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #0f0f0f;
+  color: #f5f0e8;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+  background: #fafaf8;
+  color: #1a1a1a;
+}
+
+/* Hairline card surface — no shadow, no gradient, border-defined elevation */
+.card-surface {
+  background: transparent;
+  border: 1px solid #3a3836;
+}
+
+body.light-mode .card-surface {
+  border-color: #ded8cf;
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(124, 113, 232, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(124, 113, 232, 0.5);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Flow diagram animation */
+@keyframes flow-dash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(124, 113, 232, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(124, 113, 232, 0);
+  }
+}
+
+.flow-line {
+  stroke-dasharray: 6 6;
+  animation: flow-dash 1s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-slow-svg {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-slow-svg {
+  animation: pulse-slow-svg 2.5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* Marquee scroll for logo/trust strip */
+.marquee-mask {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 20s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Card hover lift, used across Problem / HowClippedWorks / HowItWorks cards */
+.card-hover {
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card-hover:hover {
+  border-color: #7c71e8;
+  transform: translateY(-2px);
+}
+
+/* Utilities */
+@layer components {
+  .section {
+    @apply py-20 px-6 max-w-6xl mx-auto;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 rounded-lg bg-primary text-dark font-semibold hover:bg-primary/90 transition;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-orange to-primary bg-clip-text text-transparent;
+  }
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-300;
+}
+
+/* Selection color */
+::selection {
+  @apply bg-primary/30 text-cream;
+}
+
+/* Light mode adjustments */
+body.light-mode {
+  background: #fafaf8;
+  color: #1a1a1a;
+}
+
+body.light-mode nav {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(124, 113, 232, 0.2);
+}
+
+body.light-mode [class*="text-cream"] {
+  color: #1a1a1a;
+}
+
+body.light-mode [class*="bg-dark"] {
+  background-color: #f0f0f0;
+}
+
+body.light-mode [class*="border-ash"] {
+  border-color: #ded8cf;
+}
+
+body.light-mode .text-primary {
+  color: #5a4fd8;
+}
+
+body.light-mode [class*="border-primary"] {
+  border-color: #5a4fd8;
+}
+
+body.light-mode [class*="border-cream"] {
+  border-color: rgba(26, 26, 26, 0.3);
+}
+
+body.light-mode .bg-primary {
+  color: #fff;
+}
