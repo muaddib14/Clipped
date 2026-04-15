@@ -8,9 +8,7 @@ export function Hero() {
       <div className="relative z-10 section min-h-screen flex flex-col items-center justify-center text-center">
         {/* Logo */}
         <div className="mb-8">
-          <div className="inline-block p-3 rounded-card border border-primary animate-pulse-slow">
-            <Logo size="lg" />
-          </div>
+          <Logo size="lg" />
         </div>
 
         {/* Version badge */}
