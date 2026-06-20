@@ -66,7 +66,7 @@ export function HowClippedWorks() {
   ];
 
   return (
-    <section className="section py-24">
+    <section id="how-it-works" className="section py-24">
       <h2 className="text-4xl md:text-5xl font-normal mb-4">How Clipped Works</h2>
       <p className="text-lg text-cream/60 font-mono max-w-2xl mb-8">
         Clipped extracts, filters, and routes page content — cutting the noise so only clean text reaches Claude.

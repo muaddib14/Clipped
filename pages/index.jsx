@@ -28,12 +28,12 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <ThemeToggle />
             <a
-              href="https://chrome.google.com/webstore"
+              href="https://github.com/muaddib14/clipped-extension/releases/latest"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2 rounded-pill bg-primary text-dark font-mono text-xs uppercase tracking-wide hover:bg-primary/90 transition-transform duration-200 hover:scale-105"
             >
-              Install
+              Install ↗
             </a>
           </div>
         </div>

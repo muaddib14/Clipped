@@ -13,6 +13,11 @@ export function Hero() {
           </div>
         </div>
 
+        {/* Version badge */}
+        <span className="mb-4 px-3 py-1 rounded-pill border border-orange text-orange text-[10px] font-mono uppercase tracking-wide">
+          v0.0.1 — Early Access
+        </span>
+
         {/* Audience tag */}
         <p className="text-xs font-mono uppercase tracking-wider text-primary mb-6">For AI Researchers, Writers & Knowledge Workers</p>
 
@@ -29,19 +34,26 @@ export function Hero() {
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex gap-4 flex-wrap justify-center mb-16">
+        <div className="flex gap-4 flex-wrap justify-center mb-4">
           <a
-            href="https://chrome.google.com/webstore"
+            href="https://github.com/muaddib14/clipped-extension/releases/latest"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 rounded-pill bg-primary text-dark font-mono text-sm uppercase tracking-wide hover:bg-primary/90 transition-transform duration-200 hover:scale-105"
           >
-            Install Free
+            Install Free ↗
           </a>
-          <button className="px-8 py-4 rounded-pill border border-cream/40 text-cream font-mono text-sm uppercase tracking-wide hover:border-primary hover:text-primary transition-colors duration-200">
+          <a
+            href="#demo"
+            className="px-8 py-4 rounded-pill border border-cream/40 text-cream font-mono text-sm uppercase tracking-wide hover:border-primary hover:text-primary transition-colors duration-200"
+          >
             See Demo
-          </button>
+          </a>
         </div>
+
+        <p className="text-xs font-mono text-cream/50 mb-16">
+          Not on Chrome Web Store yet — <a href="#faq" className="text-primary hover:underline">see install steps ↓</a>
+        </p>
 
         {/* Trust signals */}
         <div className="flex flex-wrap gap-3 justify-center text-xs font-mono uppercase tracking-wide text-cream/60">
@@ -60,7 +72,7 @@ export function Hero() {
         </div>
 
         {/* Product preview */}
-        <div className="mt-16 w-full">
+        <div id="demo" className="mt-16 w-full">
           <ProductPreview />
         </div>
       </div>

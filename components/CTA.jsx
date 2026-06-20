@@ -13,12 +13,12 @@ export function CTA() {
 
           <div className="flex flex-wrap gap-4 justify-center mb-8">
             <a
-              href="https://chrome.google.com/webstore"
+              href="https://github.com/muaddib14/clipped-extension/releases/latest"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-10 py-4 rounded-pill bg-primary text-dark font-mono text-sm uppercase tracking-wide hover:bg-primary/90 transition"
             >
-              Install Free
+              Install Free ↗
             </a>
             <a
               href="#how-it-works"
@@ -30,6 +30,9 @@ export function CTA() {
 
           <p className="text-xs font-mono uppercase tracking-wide text-cream/50">
             No signup. No tracking. Works offline.
+          </p>
+          <p className="text-xs font-mono text-cream/50 mt-2">
+            Not on Chrome Web Store yet — <a href="#faq" className="text-primary hover:underline normal-case">see install steps</a>
           </p>
         </div>
 
