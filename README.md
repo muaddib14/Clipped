@@ -1,3 +1,4 @@
+![Clipped Banner](./public/banner.jpeg)
 # Clipped Landing Page
 
 Landing page for Clipped — extract articles to markdown for Claude.
