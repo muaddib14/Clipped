@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { Logo } from '../components/Logo';
 import { Hero } from '../components/Hero';
-import { Problem } from '../components/Problem';
+import { DeclutterDemo } from '../components/DeclutterDemo';
 import { Solution } from '../components/Solution';
 import { HowClippedWorks } from '../components/HowClippedWorks';
 import { Library } from '../components/Library';
@@ -41,7 +41,7 @@ export default function Home() {
       </nav>
 
       <Hero />
-      <Reveal><Problem /></Reveal>
+      <Reveal><DeclutterDemo /></Reveal>
       <Reveal><Solution /></Reveal>
       <Reveal><HowClippedWorks /></Reveal>
       <Reveal><Library /></Reveal>
