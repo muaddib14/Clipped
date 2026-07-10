@@ -25,6 +25,14 @@ const faqs = [
     q: 'Is Clipped free?',
     a: 'Yes, free forever for the core extraction features — copy to clipboard, download as markdown. No trial, no credit card.',
   },
+  {
+    q: 'Can I organize clips by project or topic?',
+    a: 'Yes. When saving a clip, tag it to a project — Clipped groups the file into that project\'s folder instead of dumping everything flat into Downloads. Open the built-in Library to browse, search, and re-copy any past clip by folder.',
+  },
+  {
+    q: 'Why is the extension icon greyed out on some pages?',
+    a: 'Clipped checks if a page actually looks like an article before letting you extract. Search results, dashboards, and social media feeds get skipped automatically — this avoids confusing errors on pages with nothing to clip.',
+  },
 ];
 
 function FAQItem({ q, a }) {

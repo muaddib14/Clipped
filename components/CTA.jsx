@@ -8,7 +8,7 @@ export function CTA() {
             Research faster. No friction.
           </h2>
           <p className="text-lg text-cream/70 font-mono mb-8 leading-relaxed">
-            Clipped is free. Forever. Install now, extract articles in seconds, paste into Claude instantly.
+            Clipped is free. Forever. Install now, extract articles in seconds, organize them into projects, and paste into Claude instantly.
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center mb-8">

@@ -5,7 +5,9 @@ export function Solution() {
     'Paste articles into Claude instantly',
     'Works on everything: paywalls, ads, poor HTML',
     'No cleanup. No manual formatting.',
-    'Copy to clipboard or download .md',
+    'Organize clips into projects — group research by topic',
+    'Built-in library — search, browse, and re-copy past clips',
+    'Highlight text to clip just a selection, not the whole page',
     '100% local — nothing leaves your browser',
   ];
 
@@ -32,7 +34,9 @@ export function Solution() {
           <div className="rounded-card border border-ash overflow-hidden card-hover">
             <div className="flex items-center gap-2 px-5 py-3 border-b border-ash">
               <Logo size="sm" />
-              <span className="font-mono text-xs text-cream/50">how-to-do-great-work.md</span>
+              <span className="font-mono text-xs text-cream/50">
+                <span className="text-primary">Essays/</span>how-to-do-great-work.md
+              </span>
             </div>
             <div className="p-6 font-mono text-xs leading-relaxed">
               <p className="text-cream font-semibold"># How to Do Great Work</p>

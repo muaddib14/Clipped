@@ -16,6 +16,9 @@ export function Footer() {
             <h4 className="uppercase tracking-wide text-xs mb-4 text-cream/50">Product</h4>
             <ul className="space-y-2 text-cream/60">
               <li><a href={`${REPO}/releases/latest`} target="_blank" rel="noopener noreferrer" className="hover:text-cream transition">Download Latest Release</a></li>
+              <li><a href="#how-it-works" className="hover:text-cream transition">How It Works</a></li>
+              <li><a href="#library" className="hover:text-cream transition">Library</a></li>
+              <li><a href="#faq" className="hover:text-cream transition">FAQ</a></li>
             </ul>
           </div>
 

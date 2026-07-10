@@ -1,4 +1,4 @@
-import { IconLock, IconWaves, IconGear, IconClock, IconLayers, IconCode, IconPuzzle, IconServerOff, IconGithub } from './Icons';
+import { IconLock, IconWaves, IconGear, IconClock, IconLayers, IconCode, IconPuzzle, IconServerOff, IconGithub, IconTarget } from './Icons';
 
 export function Problem() {
   const problems = [
@@ -26,6 +26,12 @@ export function Problem() {
       title: '5 Minutes of Friction',
       desc: 'Screenshot, copy, paste, cleanup. Every research session, same tax.',
     },
+    {
+      num: '05',
+      icon: IconTarget,
+      title: 'Clips Pile Up, Unsorted',
+      desc: "Even when extraction works, files dump flat into Downloads. No project, no context — just a folder full of article.md.",
+    },
   ];
 
   const builtWith = [
@@ -45,7 +51,7 @@ export function Problem() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
         {problems.map((p, i) => {
           const IconComponent = p.icon;
           return (

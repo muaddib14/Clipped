@@ -1,4 +1,4 @@
-import { IconDocument, IconTarget, IconSparkles } from './Icons';
+import { IconDocument, IconTarget, IconSparkles, IconLayers } from './Icons';
 import { FlowDiagram } from './FlowDiagram';
 
 function ExtractDiagram() {
@@ -43,6 +43,18 @@ function DeliveryDiagram() {
   );
 }
 
+function OrganizeDiagram() {
+  return (
+    <div className="flex items-center gap-3 font-mono text-xs flex-wrap">
+      <div className="px-3 py-2 rounded-pill border border-ash">article.md</div>
+      <span className="text-primary">→</span>
+      <div className="px-3 py-2 rounded-pill border border-primary text-primary">Project folder</div>
+      <span className="text-primary">→</span>
+      <div className="px-3 py-2 rounded-pill border border-orange text-orange">Library</div>
+    </div>
+  );
+}
+
 export function HowClippedWorks() {
   const blocks = [
     {
@@ -62,6 +74,12 @@ export function HowClippedWorks() {
       title: 'Delivered Your Way',
       desc: 'Copy straight to clipboard for instant paste, or download as .md — routed however your workflow needs it.',
       diagram: <DeliveryDiagram />,
+    },
+    {
+      icon: IconLayers,
+      title: 'Organized by Project',
+      desc: 'Tag clips to a project as you save them. Every article lands in its own folder — no more hunting through Downloads.',
+      diagram: <OrganizeDiagram />,
     },
   ];
 

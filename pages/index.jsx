@@ -4,6 +4,7 @@ import { Hero } from '../components/Hero';
 import { Problem } from '../components/Problem';
 import { Solution } from '../components/Solution';
 import { HowClippedWorks } from '../components/HowClippedWorks';
+import { Library } from '../components/Library';
 import { FAQ } from '../components/FAQ';
 import { CTA } from '../components/CTA';
 import { Footer } from '../components/Footer';
@@ -15,7 +16,7 @@ export default function Home() {
     <>
       <Head>
         <title>Clipped — Your Browser Reads It. Now Let Your AI Read It Too.</title>
-        <meta name="description" content="Extract any article to markdown. Drop it into Claude or any note app." />
+        <meta name="description" content="Extract any article to markdown, organize clips into projects, and drop them into Claude in seconds. 100% local, no tracking." />
         <meta name="theme-color" content="#7c71e8" />
       </Head>
 
@@ -43,6 +44,7 @@ export default function Home() {
       <Reveal><Problem /></Reveal>
       <Reveal><Solution /></Reveal>
       <Reveal><HowClippedWorks /></Reveal>
+      <Reveal><Library /></Reveal>
       <Reveal><FAQ /></Reveal>
       <Reveal><CTA /></Reveal>
       <Footer />
