@@ -20,19 +20,19 @@ export function Hero() {
         <p className="text-xs font-mono uppercase tracking-wider text-primary mb-6">For AI Researchers, Writers & Knowledge Workers</p>
 
         {/* Main heading */}
-        <h1 className="text-6xl md:text-8xl font-normal mb-6 leading-tight tracking-tight max-w-5xl">
+        <h1 className="text-6xl md:text-8xl font-normal mb-6 leading-tight tracking-tight max-w-5xl animate-fade-in" style={{ animationDelay: '0s' }}>
           Your browser reads it.
           <br />
           Now Claude does too.
         </h1>
 
         {/* Subheading */}
-        <p className="text-lg md:text-xl text-cream/60 max-w-2xl mb-12 font-mono leading-relaxed">
+        <p className="text-lg md:text-xl text-cream/60 max-w-2xl mb-12 font-mono leading-relaxed animate-fade-in" style={{ animationDelay: '0.15s' }}>
           Paste any article into Claude in seconds. No copy-paste cleanup. Works on paywalls, ads, messy HTML.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex gap-4 flex-wrap justify-center mb-4">
+        <div className="flex gap-4 flex-wrap justify-center mb-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
           <a
             href="https://github.com/muaddib14/clipped-extension/releases/latest"
             target="_blank"
@@ -49,21 +49,21 @@ export function Hero() {
           </a>
         </div>
 
-        <p className="text-xs font-mono text-cream/50 mb-16">
+        <p className="text-xs font-mono text-cream/50 mb-16 animate-fade-in" style={{ animationDelay: '0.45s' }}>
           Not on Chrome Web Store yet — <a href="#faq" className="text-primary hover:underline">see install steps ↓</a>
         </p>
 
         {/* Trust signals */}
         <div className="flex flex-wrap gap-3 justify-center text-xs font-mono uppercase tracking-wide text-cream/60">
-          <div className="flex items-center gap-2 px-4 py-2 rounded-pill border border-ash card-hover animate-fade-in" style={{ animationDelay: '0.1s' }}>
+          <div className="flex items-center gap-2 px-4 py-2 rounded-pill border border-ash card-hover animate-fade-in" style={{ animationDelay: '0.6s' }}>
             <IconLock size={14} className="text-primary" />
             <span>100% Local</span>
           </div>
-          <div className="flex items-center gap-2 px-4 py-2 rounded-pill border border-ash card-hover animate-fade-in" style={{ animationDelay: '0.25s' }}>
+          <div className="flex items-center gap-2 px-4 py-2 rounded-pill border border-ash card-hover animate-fade-in" style={{ animationDelay: '0.75s' }}>
             <IconShield size={14} className="text-primary" />
             <span>No Tracking</span>
           </div>
-          <div className="flex items-center gap-2 px-4 py-2 rounded-pill border border-ash card-hover animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <div className="flex items-center gap-2 px-4 py-2 rounded-pill border border-ash card-hover animate-fade-in" style={{ animationDelay: '0.9s' }}>
             <IconCode size={14} className="text-primary" />
             <span>Open Source</span>
           </div>

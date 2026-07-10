@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Logo } from './Logo';
 
 const border = { borderColor: '#3a3836' };
@@ -6,16 +6,86 @@ const border = { borderColor: '#3a3836' };
 export function ProductPreview() {
   const [expanded, setExpanded] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [introFlash, setIntroFlash] = useState(false);
   const [project, setProject] = useState('');
+  const [extracting, setExtracting] = useState(true);
+
+  const stageRef = useRef(null);
+  const junkRef1 = useRef(null);
+  const junkRef2 = useRef(null);
+  const hasPlayedRef = useRef(false);
 
   function handleCopy() {
     setCopied(true);
     setTimeout(() => setCopied(false), 1800);
   }
 
+  function wait(ms) {
+    return new Promise((res) => setTimeout(res, ms));
+  }
+
+  async function play() {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const junkBars = [junkRef1.current, junkRef2.current].filter(Boolean);
+
+    // Reset
+    junkBars.forEach((el) => {
+      el.classList.remove('flag', 'gone');
+      el.style.display = '';
+    });
+    setExtracting(true);
+    setIntroFlash(false);
+
+    if (prefersReduced) {
+      junkBars.forEach((el) => { el.style.display = 'none'; });
+      setExtracting(false);
+      return;
+    }
+
+    await wait(500);
+
+    for (const el of junkBars) {
+      el.classList.add('flag');
+      await wait(140);
+      el.classList.add('gone');
+      await wait(160);
+      el.style.display = 'none';
+    }
+
+    await wait(300);
+    setExtracting(false);
+
+    await wait(700);
+    setIntroFlash(true);
+    await wait(1000);
+    setIntroFlash(false);
+  }
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !hasPlayedRef.current) {
+          hasPlayedRef.current = true;
+          play();
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    if (stageRef.current) observer.observe(stageRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  function handleReplay() {
+    hasPlayedRef.current = true;
+    play();
+  }
+
   return (
+    <div className="w-full max-w-4xl mx-auto">
     <div
-      className="w-full max-w-4xl mx-auto rounded-card overflow-hidden text-left border"
+      ref={stageRef}
+      className="rounded-card overflow-hidden text-left border"
       style={{ ...border, background: '#0f0f0f' }}
     >
       {/* Browser chrome */}
@@ -43,8 +113,8 @@ export function ProductPreview() {
             <div className="h-3 w-full rounded mt-4" style={{ background: 'rgba(245,240,232,0.25)' }} />
             <div className="h-3 w-11/12 rounded" style={{ background: 'rgba(245,240,232,0.25)' }} />
             <div className="h-3 w-full rounded" style={{ background: 'rgba(245,240,232,0.25)' }} />
-            <div className="h-2 w-full rounded mt-3" style={{ background: 'rgba(255,159,67,0.3)' }} />
-            <div className="h-2 w-4/5 rounded" style={{ background: 'rgba(255,159,67,0.3)' }} />
+            <div ref={junkRef1} className="junk-bar h-2 w-full rounded mt-3" style={{ background: 'rgba(245,240,232,0.25)' }} />
+            <div ref={junkRef2} className="junk-bar h-2 w-4/5 rounded" style={{ background: 'rgba(245,240,232,0.25)' }} />
             <div className="h-3 w-full rounded mt-3" style={{ background: 'rgba(245,240,232,0.25)' }} />
             <div className="h-3 w-2/3 rounded" style={{ background: 'rgba(245,240,232,0.25)' }} />
           </div>
@@ -63,19 +133,26 @@ export function ProductPreview() {
             <div
               className="w-full py-2 px-3 mb-3 rounded font-mono text-[10px] text-center transition-all duration-300"
               style={
-                copied
+                extracting
+                  ? { background: 'rgba(245,240,232,0.05)', border: '1px solid rgba(245,240,232,0.2)', color: 'rgba(245,240,232,0.4)' }
+                  : copied
                   ? { background: 'rgba(124,113,232,0.15)', border: '1px solid #7c71e8', color: '#7c71e8' }
                   : { background: 'rgba(111,208,140,0.1)', border: '1px solid #6fd08c', color: '#6fd08c' }
               }
             >
-              {copied ? '✓ Copied to clipboard!' : '✓ Ready to copy or download'}
+              {extracting ? '● Extracting...' : copied ? '✓ Copied to clipboard!' : '✓ Ready to copy or download'}
             </div>
 
             <button
               onClick={handleCopy}
-              className="w-full py-2.5 rounded-pill bg-primary text-dark font-mono text-[11px] uppercase tracking-wide text-center mb-2 transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              className={`copy-btn relative w-full py-2.5 rounded-pill bg-primary text-dark font-mono text-[11px] uppercase tracking-wide text-center mb-2 transition-transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer ${copied || introFlash ? 'pulse' : ''}`}
             >
               Copy to Clipboard
+              {(copied || introFlash) && (
+                <span className="copied-flash absolute inset-0 flex items-center justify-center rounded-pill bg-[#6fd08c] text-dark font-mono text-[11px] uppercase tracking-wide">
+                  ✓ Copied
+                </span>
+              )}
             </button>
 
             <button
@@ -116,6 +193,57 @@ export function ProductPreview() {
           </div>
         </div>
       </div>
+    </div>
+
+      <div className="text-right mt-2">
+        <button
+          onClick={handleReplay}
+          className="font-mono text-[10px] uppercase tracking-wide cursor-pointer hover:text-primary transition-colors"
+          style={{ color: 'rgba(245,240,232,0.35)' }}
+        >
+          ↻ Replay
+        </button>
+      </div>
+
+      <style jsx>{`
+        .junk-bar {
+          transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.3s ease;
+        }
+        .junk-bar.flag {
+          background: rgba(255, 159, 67, 0.4) !important;
+        }
+        .junk-bar.gone {
+          opacity: 0;
+          transform: translateX(14px);
+          pointer-events: none;
+        }
+
+        .copy-btn.pulse {
+          animation: copyPulse 0.5s ease;
+        }
+        @keyframes copyPulse {
+          0% { transform: scale(1); }
+          40% { transform: scale(0.97); }
+          100% { transform: scale(1); }
+        }
+
+        .copied-flash {
+          animation: copiedFadeInOut 0.9s ease forwards;
+        }
+        @keyframes copiedFadeInOut {
+          0% { opacity: 0; }
+          15% { opacity: 1; }
+          75% { opacity: 1; }
+          100% { opacity: 0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .junk-bar, .copy-btn.pulse, .copied-flash {
+            animation: none !important;
+            transition: none !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }
