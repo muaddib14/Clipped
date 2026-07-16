@@ -1,8 +1,17 @@
+import { useState } from 'react';
 import { Logo } from './Logo';
 import { IconLock, IconShield, IconCode } from './Icons';
 import { ProductPreview } from './ProductPreview';
 
 export function Hero() {
+  const [copied, setCopied] = useState(false);
+
+  function handleCopy() {
+    navigator.clipboard.writeText('6nT7BT2ZC7xydBRe9SHAXP4wEXc2RXCTHBrLyu81pump');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }
+
   return (
     <section className="relative min-h-screen bg-dark">
       <div className="relative z-10 section min-h-screen flex flex-col items-center justify-center text-center">
@@ -67,6 +76,22 @@ export function Hero() {
             <IconCode size={14} className="text-primary" />
             <span>Open Source</span>
           </div>
+        </div>
+
+        {/* Token address bar */}
+        <div className="mt-12 w-full max-w-2xl mx-auto px-4">
+          <button
+            onClick={handleCopy}
+            className="w-full flex items-center justify-between px-4 py-3 rounded-lg border border-ash/50 bg-ash/20 hover:bg-ash/30 transition-colors cursor-pointer group"
+          >
+            <span className="font-mono text-xs text-cream/70 flex items-center gap-2">
+              <span>CA</span>
+              <span className="text-cream/50">6nT7BT2ZC7xydBRe9SHAXP4wEXc2RXCTHBrLyu81pump</span>
+            </span>
+            <span className={`font-mono text-[10px] transition-colors ${copied ? 'text-primary' : 'text-cream/50 group-hover:text-primary'}`}>
+              {copied ? '✓ Copied' : 'COPY'}
+            </span>
+          </button>
         </div>
 
         {/* Product preview */}
