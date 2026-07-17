@@ -9,9 +9,10 @@ const sources = [
 
 const destinations = [
   { label: 'Clipboard', color: '#7c71e8', y: 60 },
-  { label: 'article.md', color: '#ff9f43', y: 150 },
-  { label: 'Project Folder', color: '#ff9f43', y: 230 },
-  { label: 'Claude Chat', color: '#7c71e8', y: 320 },
+  { label: 'article.md', color: '#ff9f43', y: 125 },
+  { label: 'Project Folder', color: '#ff9f43', y: 190 },
+  { label: 'Claude Chat', color: '#7c71e8', y: 255 },
+  { label: 'Claude (via MCP)', color: '#7c71e8', y: 320 },
 ];
 
 export function FlowDiagram() {

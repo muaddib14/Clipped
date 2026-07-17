@@ -1,7 +1,7 @@
 ![Clipped](public/banner.jpeg)
 
 # Clipped 📎
-### v0.0.5 — Organize & Extract
+### v0.0.7 — Organize & Extract
 
 **Your browser reads it. Now let your AI read it too.**
 
@@ -27,7 +27,7 @@ No servers. No accounts. Nothing leaves your machine.
 
 ---
 
-## Features (v0.0.5)
+## Features (v0.0.7)
 
 | | |
 |---|---|
@@ -35,7 +35,10 @@ No servers. No accounts. Nothing leaves your machine.
 | 📋 **Copy to clipboard** | One click with auto-copy badge notification |
 | 💾 **Download as .md** | Article title, source URL, clean body text — saved as a file |
 | 📁 **Project tagging** | Organize clips into folders by topic as you save |
-| 🔍 **Clip library** | Search and browse all past clips, organized by project |
+| 🏷️ **Tags** | Add free-form tags to any clip; click a tag to filter the library by it |
+| 🔍 **Clip library** | Search titles, projects, and tags; sort by date, project, or word count |
+| 📰 **Weekly digest export** | One click generates a markdown summary of the last 7 days' clips, grouped by project |
+| 🤖 **MCP connector** | Let Claude read your exported library directly — no copy-paste. See [clipped-mcp](https://github.com/muaddib14/clipped-extension/tree/main/clipped-mcp) |
 | ✂️ **Selection clipping** | Highlight text to clip just a selection, not the whole page |
 | 🚫 **Readerable detection** | Icon greys out on non-article pages (dashboards, search results, social media) |
 | 🔒 **Local processing** | Readability.js + Turndown run in your browser, nothing transmitted |
@@ -47,7 +50,7 @@ No servers. No accounts. Nothing leaves your machine.
 
 > No Chrome Web Store yet. Load it unpacked in dev mode — takes less time than making coffee.
 
-1. Download `clipped-v0.0.5.zip` from [GitHub releases](https://github.com/muaddib14/clipped-extension/releases/latest)
+1. Download `clipped-v0.0.7.zip` from [GitHub releases](https://github.com/muaddib14/clipped-extension/releases/latest)
 2. Unzip somewhere permanent (Chrome reads from this folder live — don't delete it after installing)
 3. Go to `chrome://extensions` in Chrome
 4. Turn on **Developer mode** (top-right toggle)
@@ -84,8 +87,18 @@ Works on Chrome, Brave, Edge, and other Chromium browsers.
 
 **Browse clip history:**
 1. Click the Clipped icon → **Library**
-2. Browse by project folder or search across all clips
+2. Browse by project folder, or switch to **All Clips** and search/sort
 3. Click any clip to copy it again
+
+**Tag a clip:**
+1. In the Library, click **+ tag** on any clip card
+2. Enter comma-separated tags
+3. Click any tag chip later to filter the library by it
+
+**Ask Claude directly from your library (MCP):**
+1. In the Library, click the export icon (top-right) to save `clipped-library.json`
+2. Add `clipped-mcp` to your Claude Desktop config — see [setup instructions](https://github.com/muaddib14/clipped-extension/tree/main/clipped-mcp)
+3. Ask Claude things like *"What have I read about context engineering this month?"* — no copy-paste needed
 
 ---
 

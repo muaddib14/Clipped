@@ -4,6 +4,7 @@ import { Hero } from '../components/Hero';
 import { DeclutterDemo } from '../components/DeclutterDemo';
 import { Solution } from '../components/Solution';
 import { HowClippedWorks } from '../components/HowClippedWorks';
+import { MCPSection } from '../components/MCPSection';
 import { Library } from '../components/Library';
 import { FAQ } from '../components/FAQ';
 import { CTA } from '../components/CTA';
@@ -44,6 +45,7 @@ export default function Home() {
       <Reveal><DeclutterDemo /></Reveal>
       <Reveal><Solution /></Reveal>
       <Reveal><HowClippedWorks /></Reveal>
+      <Reveal><MCPSection /></Reveal>
       <Reveal><Library /></Reveal>
       <Reveal><FAQ /></Reveal>
       <Reveal><CTA /></Reveal>

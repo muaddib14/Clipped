@@ -22,7 +22,7 @@ export function Hero() {
 
         {/* Version badge */}
         <span className="mb-4 px-3 py-1 rounded-pill border border-orange text-orange text-[10px] font-mono uppercase tracking-wide">
-          v0.0.5 — Early Access
+          v0.0.7 — Early Access
         </span>
 
         {/* Audience tag */}

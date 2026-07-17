@@ -33,6 +33,14 @@ const faqs = [
     q: 'Why is the extension icon greyed out on some pages?',
     a: 'Clipped checks if a page actually looks like an article before letting you extract. Search results, dashboards, and social media feeds get skipped automatically — this avoids confusing errors on pages with nothing to clip.',
   },
+  {
+    q: 'Can Claude read my whole library, not just one clip at a time?',
+    a: 'Yes — clipped-mcp is a local MCP server that lets Claude Desktop search and read your saved clips directly in conversation. Export your library from the Library view, add clipped-mcp to your Claude Desktop config, and ask things like "what have I read about X this month?" No copy-paste, no cloud sync — it just reads a local file.',
+  },
+  {
+    q: 'Can I tag clips or just organize by project?',
+    a: 'Both. Projects group clips into folders; tags are free-form labels you add on top for finer filtering. Click any tag in the Library to instantly filter to everything with that tag.',
+  },
 ];
 
 function FAQItem({ q, a }) {

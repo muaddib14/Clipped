@@ -8,6 +8,8 @@ export function Solution() {
     'Organize clips into projects — group research by topic',
     'Built-in library — search, browse, and re-copy past clips',
     'Highlight text to clip just a selection, not the whole page',
+    'Tag clips and filter your library by topic',
+    'Let Claude read your library directly via MCP — no copy-paste',
     '100% local — nothing leaves your browser',
   ];
 

@@ -1,4 +1,4 @@
-import { IconDocument, IconTarget, IconSparkles, IconLayers } from './Icons';
+import { IconDocument, IconTarget, IconSparkles, IconLayers, IconServerOff } from './Icons';
 import { FlowDiagram } from './FlowDiagram';
 
 function ExtractDiagram() {
@@ -55,6 +55,18 @@ function OrganizeDiagram() {
   );
 }
 
+function MCPDiagram() {
+  return (
+    <div className="flex items-center gap-3 font-mono text-xs flex-wrap">
+      <div className="px-3 py-2 rounded-pill border border-ash">Library</div>
+      <span className="text-primary">→</span>
+      <div className="px-3 py-2 rounded-pill border border-primary text-primary">clipped-mcp</div>
+      <span className="text-primary">→</span>
+      <div className="px-3 py-2 rounded-pill border border-orange text-orange">Claude conversation</div>
+    </div>
+  );
+}
+
 export function HowClippedWorks() {
   const blocks = [
     {
@@ -80,6 +92,12 @@ export function HowClippedWorks() {
       title: 'Organized by Project',
       desc: 'Tag clips to a project as you save them. Every article lands in its own folder — no more hunting through Downloads.',
       diagram: <OrganizeDiagram />,
+    },
+    {
+      icon: IconServerOff,
+      title: 'Claude Reads Your Library Directly',
+      desc: 'Export once, then clipped-mcp lets Claude search and read your saved clips mid-conversation — no copy-paste, no cloud, fully local.',
+      diagram: <MCPDiagram />,
     },
   ];
 
